@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en" class="h-full">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chatbot Demo</title>
+  <script type="module" crossorigin src="/projects/chatbot-mockup-demo/assets/index-BaeQxyhP.js"></script>
+  <link rel="stylesheet" crossorigin href="/projects/chatbot-mockup-demo/assets/index-7zgeUN29.css">
+</head>
+
+<body class="h-full">
+  <div id="app" class="h-full relative" >
+    <div class="h-full container mx-auto pt-6">
+      <h1 class="text-3xl mb-4">Website content</h1>
+
+      <p class="mb-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni quibusdam architecto laudantium
+        animi nihil
+        fugiat velit. Facilis veniam officia odit amet quam delectus, neque esse repellendus! Odit deleniti, quidem
+        delectus voluptatum impedit consequatur, repudiandae accusamus aspernatur nostrum saepe optio deserunt!</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam sunt dignissimos numquam adipisci maxime rem
+        quam asperiores natus officia? Provident nostrum amet porro ullam voluptatum similique ratione consequuntur sed
+        iure aliquid sit magnam facilis distinctio, inventore temporibus delectus perspiciatis unde voluptatem sapiente
+        culpa aliquam nam. Sequi quasi, architecto dolore in praesentium a minima omnis dolores explicabo placeat,
+        expedita facilis eum sed ratione, ex mollitia corrupti ab iure labore! Accusantium ea nemo dolorum ab corrupti
+        rem ex maxime magnam provident aperiam facere qui, animi sit delectus cumque dolor deleniti cum odit.</p>
+    </div>
+
+    <div data-target="chat-openchatwin"
+      class="flex absolute bottom-2 right-2 w-15 h-15 shadow-2xl hover:w-115 hover:h-auto transition-all overflow-hidden duration-500 bg-[#de1f22] cursor-pointer">
+      <div class="h-15">
+        <div class="py-4 w-15 h-15 text-center flex items-center justify-center">
+          <i class="bi-chat-left-text text-white text-2xl"></i>
+        </div>
+      </div>
+      <div class="text-white py-4 min-w-100 w-100 overflow-hidden">
+        <div class="flex flex-col gap-1">
+          <div>
+            Buongiorno, <br>sono l’assistente virtuale della Città di Mendrisio!<br> Fornisco informazioni su
+            www.mendrisio.ch
+          </div>
+          <div>
+            <button type="button" class="rounded bg-white p-2 px-4 text-[#de1f22] font-semibold cursor-pointer">Apri chatbot</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="chatwin" class="absolute transition-all inset-0 hidden duration-400 ">
+    <div id="chatwin-body"
+      class="absolute top-10/12 bg-white sm:left-auto bottom-0 sm:bottom-2 right-0 sm:right-2 w-0 md:max-w-200 transition-all duration-600 overflow-hidden">
+      <!-- Margins -->
+      <div class=" p-5 md:p-12 pb-0 md:pb-0 flex flex-col h-full">
+        <!-- BEGIN Header -->
+        <div class="flex justify-between mb-12">
+          <div>
+            <img src="/projects/chatbot-mockup-demo/assets/logo-citta_1-line_positive-color-Bp4EVR5j.png" width="240" height="10"
+              class="absolute hidden sm:block" />
+          </div>
+          <div class="flex gap-1 md:gap-2">
+            <button id="new-chat"
+              class="hidden font-semibold bg-gray-100 p-2 px-3 items-center hover:bg-gray-200 cursor-pointer"><i
+                class="bi bi-pencil-square "></i>
+              <span class="text-sm block ml-2">Nuova Chat</span>
+            </button>
+            <div
+              class="bg-gray-100 p-2 px-3 hover:bg-gray-200 cursor-pointer text-lg leading-none aspect-square flex items-center"
+              id="privacy-info-btn"><i class="bi bi-info-lg"></i></div>
+            <div id="privacy-info-tooltip" class="fixed w-150 bg-white border-black border-1 shadow p-4">
+              Questo chatbot è un assistente virtuale automatizzato messo a disposizione dalla Città di Mendrisio per
+              fornire informazioni e assistenza generale. Le risposte fornite non hanno un valore legale e non
+              costituiscono in alcun modo comunicazioni ufficiali, né sostituiscono le normative della Città o
+              l’intervento di un operatore qualificato. Si invita l’utenza a non inserire dati personali sensibili
+              durante
+              l’interazione con il chatbot. Per richieste specifiche o pratiche ufficiali, si consiglia di contattare
+              direttamente gli uffici competenti tramite i canali istituzionali. Utilizzando questa chat, accetta le
+              Condizioni d'uso e l’informativa sulla privacy della Città di Mendrisio.
+            </div>
+            <div
+              class="bg-gray-100 p-2 px-3 hover:bg-gray-200 cursor-pointer text-lg leading-none aspect-square flex items-center">
+              <i class="bi bi-x-lg"></i>
+            </div>
+          </div>
+        </div>
+        <!-- ENDOF Header-->
+        <!-- BEGIN NEW CHAT-->
+        <div id="start-chat" class="flex flex-col grow-1 overflow-hidden">
+          <h2 class="text-3xl mb-10">Buongiorno, chiedimi pure qualsiasi cosa.</h2>
+          <div class="flex items-end bg-gray-50">
+            <textarea id="new-chat-input" autofocus="true" placeholder="Scrivi qui la tua domanda" rows="1"
+              style="field-sizing: content;resize: none;"
+              class=" w-full bg-gray-50 focus:border-red-600 border-l-4 p-6 pl-6  text-gray-600 focus:outline-hidden placeholder-gray-500"></textarea>
+            <button class="flex items-center bg-gray-300 m-3 rounded text-white px-4 h-12 w-12"><i
+                class="bi bi-arrow-right "></i>
+            </button>
+          </div>
+          <div class="flex flex-col grow-1 overflow-hidden">
+            <div class="grow-1 overflow-auto">
+              <div data-target="start-chat"
+                class="border-gray-100 bg-gray-100 hover:bg-gray-200 border-l-4 p-6 pl-6 mb-2 text-gray-800 cursor-pointer mt-8">
+                <div class="font-bold">Certificato di domicilio</div>
+                <div>Come posso chiedere un certificato di domicilio?</div>
+              </div>
+              <div data-target="start-chat"
+                class="border-gray-100 bg-gray-100 hover:bg-gray-200 border-l-4 p-6 pl-6 text-gray-800 cursor-pointer">
+                <div class="font-bold">Sportelli comunali</div>
+                <div>Quali sono gli orari di apertura degli sportelli comunali?</div>
+              </div>
+            </div>
+            <!-- START DISCLAIMER NEW CHAT -->
+            <div class="flex flex-col grow-0 bg-white my-2">
+              <div class="text-xs inline-block text-center text-red-400 font-bold">Chatbot in versione beta</div>
+              <small class="text-xs inline-block text-center text-gray-400 w-full">Tutte le informazioni sono fornite
+                senza garanzia. Potete verificare le informazioni sul nostro sito web utilizzando i link
+                forniti.</small>
+            </div>
+          </div>
+          <!-- ENDOF DISCLAIMER NEW CHAT -->
+        </div>
+        <!-- ENDOF NEW CHAT-->
+        <!-- BEGIN Chatting -->
+        <div class="hidden flex flex-col overflow-auto h-full" id="chatting">
+          <div class="grow-1 min-w-0 overflow-auto">
+            <div class="bg-red-50 p-3 ml-12">Quali sono gli orari di apertura degli sportelli comunali?</div>
+            <div class="pt-10 mr-4">
+              <p class="mb-2">
+                Per richiedere un certificato di domicilio o residenza nella Città di Mendrisio, deve rivolgersi al
+                Controllo abitanti della città o presso gli sportelli comunali di quartiere.
+              </p>
+              <p class="mb-2">
+                La richiesta può essere
+                inoltrata per iscritto, inviando una lettera o una e-mail, oppure presentandosi direttamente al
+                Controllo
+                abitanti o agli sportelli comunali di quartiere. Si ricordi che per l'emissione di ogni certificato è
+                prevista una tassa amministrativa <button id="demo-link-1"
+                  class="inline-block border-1 aspect-square px-1 hover:border-red-600 hover:bg-red-600 hover:text-white"
+                  href="1">1</button> <button
+                  class="inline-block border-1 aspect-square hover:border-red-600 hover:bg-red-600 hover:text-white px-1 "
+                  href="2">2</button>
+              <div id="demo-tooltip-1" class="absolute border-1 shadow">
+                <div id="arrow" class="z-0"></div>
+                <div class="bg-white p-2 z-1 relative">
+                  <div class="mb-2">
+                    Certificati del controllo abitanti | Città di Mendrisio
+                  </div>
+                  <a class="bg-red-600 px-2 py-1 text-white"
+                    href="https://mendrisio.ch/home/sportello-elettronico/amministrazione/certificati-e-documenti/certificati-controllo-abitanti.html">Vai
+                    alla fonte <i class="bi bi-link-45deg"></i></a>.
+                </div>
+              </div>
+              </p>
+              <p class="mb-4">
+                Per ulteriori informazioni, può contattare il Controllo abitanti ai seguenti recapiti:
+              </p>
+              <h3 class="text-lg font-semibold">Controllo abitanti</h3>
+              <p>
+                Via Municipio 13<br>
+                6850 Mendrisio<br>
+                Telefono: +41 58 688 34 00<br>
+                Email: controlloabitanti@mendrisio.ch
+              </p>
+              <hr class="mt-8 mb-5 border-gray-400">
+              <div>
+                <button id="display-sources"
+                  class="bg-gray-100 cursor-pointer w-auto p-2 px-3 font-semibold text-sm mb-2"><span
+                    class="pr-2">Mostra le fonti</span><i id="display-sources-icon"
+                    class="bi bi-chevron-down"></i></button>
+                <div id="sources" class="hidden">
+                  <div class="bg-gray-50 hover:bg-gray-100 p-2 px-3 mb-2 text-gray-800 cursor-pointer flex gap-2">
+                    <div class="font-bold grow-0">1</div>
+                    <div class="grow-1">Certificati del controllo abitanti | Città di Mendrisio</div>
+                    <div class="bi bi-link-45deg"></div>
+                  </div>
+                  <div class="bg-gray-50 hover:bg-gray-100 p-2 px-3 mb-2 text-gray-800 cursor-pointer flex gap-2">
+                    <div class="font-bold grow-0">2</div>
+                    <div class="grow-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores perspiciatis
+                      ullam quos repellendus adipisci corrupti id soluta doloribus quisquam rem?</div>
+                    <div class="bi bi-link-45deg"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="grow-0 bottom-2 left-8 right-8 bg-white">
+            <div class="flex bg-gray-50 my-2">
+              <input autofocus="true" placeholder="Scrivi qui la tua domanda"
+                class="focus:border-red-600 w-full bg-gray-50 border-l-4 p-6 pl-6  text-gray-600 focus:outline-hidden" />
+              <button class="flex items-center bg-gray-300 m-3 rounded text-white px-4"><i
+                  class="bi bi-arrow-right "></i>
+              </button>
+            </div>
+            <div class="flex flex-col my-2">
+              <div class="text-xs inline-block text-center text-red-400 font-bold">Chatbot in versione beta</div>
+              <small class="text-xs inline-block text-center text-gray-400 w-full">Tutte le informazioni sono fornite
+                senza garanzia. Potete verificare le informazioni sul nostro sito web utilizzando i link
+                forniti.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div></div>
+  </div>
+  </div>
+
+</body>
+
+
+</html>

@@ -6,7 +6,7 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>projects/icml</title>
+    <title>Men totem</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +32,7 @@
             <div class="relative">
               <button class="cursor-pointer font-extrabold hover:bg-gray-300 hover:text-gray-900"
                 id="button"><div class="bg-white text-black">
-                  --projects/icml
+                  --projects/novita-fiscali
                 </div></button>
               <div id="tooltip"
                 class="absolute bg-black border-2 top-0 left-0 border-white px-4 py-2 mx-4 hidden flex flex-col">
@@ -59,29 +59,34 @@
         <div class="flex flex-col items-center">
             <div class="container max-w-200 flex flex-col items-center px-4 ">
                 <h1 class="text-2xl mb-4">
-                    <a target="_blank" href="https://icml.ch/"><span class="underline">ICML.CH</span> <i
+                    <a target="_blank" href="https://novitafiscali.ch/"><span class="underline">SUPSI Novita fiscali</span> <i
                             class="bi bi-box-arrow-up-right"></i></a>
                 </h1>
-                <p class="mb-4">A fully independent project: a clean, searchable website built from scratch, covering
-                    both frontend templates and backend integration with Magnolia CMS.</p>
-                <div class="w-full mb-4">
-                    <img src="/assets/icml-ch-C7npyhXR.jpg">
+                <p class="mb-4">A digital newspaper for SUPSI’s Department of Business and Economics, publishing monthly
+                    articles from students and professors, featuring user registration, premium content, automated Word
+                    import, and donation integration.</p>
+                <div class="mb-4">
+                    <img src="/assets/nf-CRBs2W_e.png">
                 </div>
-                <h2 class="w-full text-xl mb-2">Detailed scope of the project</h2>
                 <p>
-                    ICML was my first end-to-end solo project, encompassing every layer of development, with occasional
-                    support from a colleague. The objective was to create a simple yet fully functional website with
-                    content management and search capabilities. I designed and implemented custom HTML, CSS, and
-                    JavaScript templates for the frontend, while configuring Magnolia CMS as the backend to handle
-                    content authoring, page structuring, and full-text search. The site demonstrates a complete
-                    workflow—from content creation in the CMS to dynamic rendering and user-facing search—serving as a
-                    practical proof of concept for lightweight, maintainable web solutions.
+                    The project delivered an online journal for SUPSI (University of Applied Sciences and Arts of
+                    Southern Switzerland), aggregating tax and economic articles authored by students and professors
+                    into structured monthly issues. Built on Magnolia CMS—a content management system used to create and
+                    manage website pages—the platform enables public access to general content while requiring
+                    registration and login for premium or full-issue access. A custom importer automatically transforms
+                    submitted Microsoft Word documents into properly formatted articles within the CMS, preserving
+                    layout and metadata. Each monthly edition is curated as a cohesive publication. The site also
+                    includes a secure donation module powered by Datatrans to support ongoing editorial efforts.
                 </p>
                 <h2 class="text-xl w-full mb-2 mt-4">Technologies used</h2>
                 <ul class="w-full">
-                    <li>Magnolia CMS</li>
-                    <li>Freemarker (templating), HTML, CSS, Javascript</li>
-                    <li>JCR (Java Content Repository)</li>
+                    <li>Java 11 / Spring / Magnolia Blossom</li>
+                    <li>HTML CSS Javascript</li>
+                    <li>Freemarker (templating)</li>
+                    <li>Apache POI (Word document parsing)</li>
+                    <li>Datatrans Payment API</li>
+                    <li>User authentication (Magnolia security)</li>
+                    <li>MySQL / JCR</li>
                 </ul>
             </div>
         </div>
